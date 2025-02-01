@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> <!-- Google Font: Lobster -->
-
+    
     <style>
         /* Basic Reset */
         * {
@@ -16,7 +16,7 @@
 
         body, html {
             height: 100%;
-            font-family: 'Lobster', cursive, sans-serif;  /* Updated font-family */
+            font-family: 'Lobster', cursive, sans-serif;
             color: #fff;
             overflow: hidden;
         }
@@ -35,7 +35,7 @@
 
         /* Main content container */
         .content {
-            max-width: 700px;
+            max-width: 800px;
             width: 90%; /* Reduced width for better mobile layout */
             padding: 30px;
             background-color: rgba(0, 0, 0, 0.6);
@@ -62,34 +62,51 @@
             animation: fadeIn 2.5s ease-out;
         }
 
-        /* Couple's name with different font sizes */
-        .couple {
+        /* Countdown Timer - Simple Design */
+        .countdown {
             font-family: 'Lobster', cursive;
-            display: inline-block;
-            margin: 0;
-        }
-
-        .couple .name {
-            font-size: 50px;  /* Larger size for names */
-        }
-
-        .couple .wed {
-            font-size: 25px;  /* Smaller size for "Weds" */
-            color: #f5f5f5;  /* Slightly lighter color */
-            margin: 0 10px;  /* Space between names and "Weds" */
-        }
-
-        /* Event details section */
-        .details {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-weight: 300;
+            font-size: 24px;
+            color: #ff6347;
+            margin: 30px 0;
             animation: fadeIn 3s ease-out;
         }
 
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+
+        .countdown span {
+            text-align: center;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .countdown span p {
+            font-size: 18px;
+            color: #ff6347;
+            margin-top: 5px;
+        }
+
+        /* Details section styling */
+        .details {
+            font-size: 20px; /* Increase font size */
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: #fff; /* Make text color white */
+            animation: fadeIn 3s ease-out;
+            padding: 20px; /* Added padding for spacing */
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+        }
+
         .details p {
-            margin: 8px 0;
+            margin: 12px 0; /* Add more space between lines */
         }
 
         /* RSVP Button */
@@ -111,41 +128,6 @@
             background-color: #e53e32;
         }
 
-        /* Mobile Responsive Design */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 28px; /* Smaller title font */
-            }
-
-            h2 {
-                font-size: 32px; /* Adjust size for names */
-            }
-
-            .couple .name {
-                font-size: 50px; /* Smaller font for names */
-            }
-
-            .couple .wed {
-                font-size: 30px; /* Smaller size for "Weds" */
-            }
-
-            .details {
-                font-size: 16px; /* Smaller text for details */
-                padding: 0 15px; /* Padding for mobile */
-            }
-
-            .rsvp {
-                font-size: 16px;
-                padding: 10px 20px;
-            }
-
-            /* Adjust content padding and width for smaller screens */
-            .content {
-                width: 90%;
-                padding: 20px;
-            }
-        }
-
         /* Animation */
         @keyframes fadeIn {
             from {
@@ -155,6 +137,37 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 600px) {
+            .countdown span {
+                font-size: 30px; /* Smaller font for mobile */
+            }
+
+            .countdown-container {
+                gap: 20px;
+            }
+
+            .content {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .rsvp {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            /* Make details font larger on mobile */
+            .details {
+                font-size: 18px; /* Increase font size on mobile */
+                padding: 15px;
+            }
+
+            .details p {
+                margin: 10px 0; /* Adjust margin for mobile */
             }
         }
 
@@ -179,11 +192,62 @@
                 <p><strong>Time:</strong> 4:00 PM</p>
                 <p><strong>Venue:</strong> The Grand Hall, City Center</p>
             </div>
-
+			
+			<!-- Countdown Timer -->
+            <div class="countdown">
+                <div class="countdown-container">
+                    <span id="days">
+                        <p id="days-number"></p>
+                        <p>Days</p>
+                    </span>
+                    <span id="hours">
+                        <p id="hours-number"></p>
+                        <p>Hours</p>
+                    </span>
+                    <span id="minutes">
+                        <p id="minutes-number"></p>
+                        <p>Minutes</p>
+                    </span>
+                    <span id="seconds">
+                        <p id="seconds-number"></p>
+                        <p>Seconds</p>
+                    </span>
+                </div>
+            </div>
+			
             <!-- RSVP Button -->
             <a href="mailto:rsvp@example.com" class="rsvp">LINK TO GOOGLE MAPS</a>
         </div>
     </div>
+
+    <script>
+        // Set the date of the wedding
+        const weddingDate = new Date("Feb 15, 2025 16:00:00").getTime();
+
+        // Update the countdown every second
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            // Calculate the time components
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            document.getElementById("days-number").innerText = days;
+            document.getElementById("hours-number").innerText = hours;
+            document.getElementById("minutes-number").innerText = minutes;
+            document.getElementById("seconds-number").innerText = seconds;
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector(".countdown").innerText = "The big day is here!";
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
