@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet"> <!-- Modern fonts -->
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Pacifico', cursive;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Full page background with gradient */
+        .background {
+            background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(255, 94, 77, 0.6)), url('your-background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Main content container with designer borders */
+        .content {
+            max-width: 700px;
+            width: 90%; /* Reduced width for better mobile layout */
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative; /* To position border inside */
+            animation: slideIn 1s ease-out; /* Slide-in animation */
+            overflow: hidden;
+        }
+
+        /* Adding designer border */
+        .content::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 3px solid #ff6347;
+            border-radius: 15px;
+            z-index: -1;
+            box-shadow: 0 0 30px rgba(255, 99, 71, 0.8); /* Glowing effect */
+            animation: borderGlow 2s ease-out infinite alternate;
+        }
+
+        /* Heading */
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 20px;
+            color: #ff6347;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 2s ease-out, bounce 1s ease-in-out infinite; /* Bounce animation for h1 */
+        }
+
+        h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 30px;
+            animation: fadeIn 2.5s ease-out; /* No bounce effect for couple names */
+        }
+
+        /* Couple's name with different font sizes */
+        .couple {
+            font-family: 'Pacifico', cursive;
+            display: inline-block;
+            margin: 0;
+        }
+
+        .couple .name {
+            font-size: 50px;  /* Larger size for names */
+        }
+
+        .couple .wed {
+            font-size: 25px;  /* Smaller size for "Weds" */
+            color: #f5f5f5;  /* Slightly lighter color */
+            margin: 0 10px;  /* Space between names and "Weds" */
+        }
+
+        /* Event details section */
+        .details {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 300;
+            animation: fadeIn 3s ease-out;
+        }
+
+        .details p {
+            margin: 8px 0;
+        }
+
+        /* RSVP Button */
+        .rsvp {
+            text-decoration: none;
+            padding: 12px 25px;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .rsvp:hover {
+            transform: scale(1.1);
+            background-color: #e53e32;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px; /* Smaller title font */
+            }
+
+            h2 {
+                font-size: 32px; /* Adjust size for names */
+            }
+
+            .couple .name {
+                font-size: 50px; /* Smaller font for names */
+            }
+
+            .couple .wed {
+                font-size: 30px; /* Smaller size for "Weds" */
+            }
+
+            .details {
+                font-size: 16px; /* Smaller text for details */
+                padding: 0 15px; /* Padding for mobile */
+            }
+
+            .rsvp {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            /* Adjust content padding and width for smaller screens */
+            .content {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slide-in animation for the content */
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Bounce animation for the "You're Invited!" text */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Glowing border effect */
+        @keyframes borderGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(255, 99, 71, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(255, 99, 71, 0.8);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background">
+        <div class="content">
+            <h1>You're Invited!</h1>
+
+            <!-- Couple's Names with "Weds" in the middle -->
+            <h2 class="couple">
+                <span class="name">Varun</span>
+                <span class="wed">Weds</span>
+                <span class="name">Chaitra</span>
+            </h2>
+
+            <!-- Event Details -->
+            <div class="details">
+                <p><strong>Date:</strong> 15th February 2025</p>
+                <p><strong>Time:</strong> 4:00 PM</p>
+                <p><strong>Venue:</strong> The Grand Hall, City Center</p>
+            </div>
+
+            <!-- RSVP Button -->
+            <a href="mailto:rsvp@example.com" class="rsvp">LINK TO GOOGLE MAPS</a>
+        </div>
+    </div>
+
+</body>
+</html>
