@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet"> <!-- Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> <!-- Google Font: Lobster -->
+
     <style>
         /* Basic Reset */
         * {
@@ -14,14 +13,13 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body, html {
             height: 100%;
-            font-family: 'Pacifico', cursive, sans-serif;  /* Fallback font in case 'Pacifico' fails to load */
+            font-family: 'Lobster', cursive, sans-serif;  /* Updated font-family */
             color: #fff;
             overflow: hidden;
         }
-
 
         /* Full page background with gradient */
         .background {
@@ -35,7 +33,7 @@
             text-align: center;
         }
 
-        /* Main content container with designer borders */
+        /* Main content container */
         .content {
             max-width: 700px;
             width: 90%; /* Reduced width for better mobile layout */
@@ -43,48 +41,30 @@
             background-color: rgba(0, 0, 0, 0.6);
             border-radius: 15px;
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-            position: relative; /* To position border inside */
-            animation: slideIn 1s ease-out; /* Slide-in animation */
-            overflow: hidden;
-        }
-
-        /* Adding designer border */
-        .content::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 3px solid #ff6347;
-            border-radius: 15px;
-            z-index: -1;
-            box-shadow: 0 0 30px rgba(255, 99, 71, 0.8); /* Glowing effect */
-            animation: borderGlow 2s ease-out infinite alternate;
         }
 
         /* Heading */
         h1 {
-            font-family: 'Pacifico', cursive;
+            font-family: 'Lobster', cursive;
             font-size: 20px;
             color: #ff6347;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            animation: fadeIn 2s ease-out, bounce 1s ease-in-out infinite; /* Bounce animation for h1 */
+            animation: fadeIn 2s ease-out;
         }
 
         h2 {
-            font-family: 'Pacifico', cursive;
+            font-family: 'Lobster', cursive;
             font-size: 40px;
             color: #fff;
             margin-bottom: 30px;
-            animation: fadeIn 2.5s ease-out; /* No bounce effect for couple names */
+            animation: fadeIn 2.5s ease-out;
         }
 
         /* Couple's name with different font sizes */
         .couple {
-            font-family: 'Pacifico', cursive;
+            font-family: 'Lobster', cursive;
             display: inline-block;
             margin: 0;
         }
@@ -122,14 +102,13 @@
             font-size: 18px;
             font-weight: bold;
             display: inline-block;
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .rsvp:hover {
             transform: scale(1.1);
             background-color: #e53e32;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
         }
 
         /* Mobile Responsive Design */
@@ -176,38 +155,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        /* Slide-in animation for the content */
-        @keyframes slideIn {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Bounce animation for the "You're Invited!" text */
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Glowing border effect */
-        @keyframes borderGlow {
-            0% {
-                box-shadow: 0 0 15px rgba(255, 99, 71, 0.8);
-            }
-            100% {
-                box-shadow: 0 0 30px rgba(255, 99, 71, 0.8);
             }
         }
 
