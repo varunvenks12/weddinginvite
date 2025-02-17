@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> <!-- Google Font: Lobster -->
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Sevillana&display=swap" rel="stylesheet">
     <style>
         /* Basic Reset */
         * {
@@ -45,19 +46,19 @@
 
         /* Heading */
         h1 {
-            font-family: 'Lobster', cursive;
-            font-size: 20px;
-            color: #ff6347;
-            margin-bottom: 10px;
+            font-family: "Protest Riot", serif;
+            font-size: 15px;
+            color: #fff;
+            margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 2px;
             animation: fadeIn 2s ease-out;
         }
 
         h2 {
-            font-family: 'Lobster', cursive;
+            font-family: "Sevillana", serif;
             font-size: 40px;
-            color: #fff;
+            color: #ff6347;
             margin-bottom: 30px;
             animation: fadeIn 2.5s ease-out;
         }
@@ -94,9 +95,9 @@
 
         /* Details section styling */
         .details {
-            font-size: 20px; /* Increase font size */
+            font-size: 18px; /* Increase font size */
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: 300;
             color: #fff; /* Make text color white */
             animation: fadeIn 3s ease-out;
@@ -182,15 +183,15 @@
             <!-- Couple's Names with "Weds" in the middle -->
             <h2 class="couple">
                 <span class="name">Varun</span>
-                <span class="wed">Weds</span>
+                <span class="wed">weds</span>
                 <span class="name">Chaitra</span>
             </h2>
 
             <!-- Event Details -->
             <div class="details">
-                <p><strong>Date:</strong> 15th February 2025</p>
-                <p><strong>Time:</strong> 4:00 PM</p>
-                <p><strong>Venue:</strong> The Grand Hall, City Center</p>
+                <p><strong>Date:</strong> 30th April 2025</p>
+                <p><strong>Time:</strong> 09:45 AM</p>
+                <p><strong>Venue:</strong> Ideal Homes Community Hall, <br>BHEL Layout, Rajarajeshwari Nagar, Bengaluru-560098</p>
             </div>
 			
 			<!-- Countdown Timer -->
@@ -216,13 +217,13 @@
             </div>
 			
             <!-- RSVP Button -->
-            <a href="mailto:rsvp@example.com" class="rsvp">LINK TO GOOGLE MAPS</a>
+            <a href="https://maps.app.goo.gl/8aomGnkt5rbZKkLf6" target="_blank" class="rsvp">LINK TO GOOGLE MAPS</a>
         </div>
     </div>
 
     <script>
         // Set the date of the wedding
-        const weddingDate = new Date("Feb 15, 2025 16:00:00").getTime();
+        const weddingDate = new Date("Apr 30, 2025 09:45:00").getTime();
 
         // Update the countdown every second
         const countdownInterval = setInterval(function() {
